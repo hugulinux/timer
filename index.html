@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador Personalizável</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Tela 1: Configuração -->
+    <div id="config-screen" class="screen active">
+        <img id="logo-display" src="logoserpro.png" alt="Logo">
+        <h1>Configuração do Temporizador</h1>
+
+        <div class="form-group">
+            <label for="bgColor">Cor de Fundo:</label>
+            <input type="color" id="bgColor" value="#ffffff">
+        </div>
+
+        <div class="form-group">
+            <label for="textColor">Cor do Texto:</label>
+            <input type="color" id="textColor" value="#000000">
+        </div>
+
+        <div class="form-group">
+            <label for="timeInput">Tempo (minutos):</label>
+            <input type="number" id="timeInput" value="1" min="0">
+        </div>
+
+        <div class="form-group">
+            <label for="modeSelect">Modo:</label>
+            <select id="modeSelect">
+                <option value="regressive" selected>Contagem Regressiva</option>
+                <option value="progressive">Cronômetro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="fontSizeSelect">Tamanho da Fonte:</label>
+            <select id="fontSizeSelect">
+                <option value="300px">Grande</option>
+                <option value="450px" selected>Gigante</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="fontFamilySelect">Tipo de Fonte:</label>
+            <select id="fontFamilySelect">
+                <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" selected>Padrão</option>
+                <option value="'DS-Digital', sans-serif">DS Digital</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="fullscreenCheck" checked> Tela Cheia ao Iniciar
+            </label>
+        </div>
+
+        <button id="startBtn" class="primary-btn">INICIAR</button>
+
+        <div class="footer-text">
+            <strong>DIOPE/SUPOP/OPCEI/OPARB/OPAB2</strong>
+        </div>
+    </div>
+
+    <!-- Tela 2: Temporizador -->
+    <div id="timer-screen" class="screen">
+        <div id="timer-display">00:00</div>
+
+        <div class="controls">
+            <button id="pauseBtn">Pausar</button>
+            <button id="resumeBtn" style="display:none;">Retomar</button>
+            <button id="stopBtn">Parar</button>
+            <button id="backBtn">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Tela 3: Tempo Esgotado -->
+    <div id="end-screen" class="screen">
+        <h1 class="end-message">TEMPO ESGOTADO</h1>
+        <div id="overtime-display">00:00</div>
+        <button id="endBackBtn" class="small-btn">Voltar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

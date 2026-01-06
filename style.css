@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* Prevent scrollbars in fullscreen apps usually */
+}
+
+.screen {
+    display: none;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Config Screen Styles */
+#config-screen {
+    background-color: #f0f2f5;
+    color: #333;
+    overflow-y: auto;
+    /* Allow scrolling if config is tall */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="number"],
+select,
+input[type="color"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="color"] {
+    height: 40px;
+    cursor: pointer;
+}
+
+.primary-btn {
+    padding: 15px 40px;
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.footer-text {
+    margin-top: 30px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Timer Screen Styles */
+#timer-display {
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 40px;
+    text-align: center;
+    /* Font size will be set via JS */
+}
+
+.controls button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: inherit;
+    border: 1px solid currentColor;
+}
+
+.controls button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* End Screen Styles */
+#end-screen {
+    background-color: red !important;
+    /* Forced as per requirement */
+    color: white !important;
+    /* Forced as per requirement */
+}
+
+.end-message {
+    font-size: 200px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: blink 1s infinite;
+}
+
+#overtime-display {
+    font-size: 150px;
+    /* Medium size */
+    margin-bottom: 40px;
+}
+
+.small-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: white;
+    color: red;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+#logo-display {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+    z-index: 100;
+}
