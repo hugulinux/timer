@@ -22,6 +22,8 @@ const fontSizeSelect = document.getElementById('fontSizeSelect');
 const fontFamilySelect = document.getElementById('fontFamilySelect');
 const fullscreenCheck = document.getElementById('fullscreenCheck');
 const logoDisplay = document.getElementById('logo-display');
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
 
 // State
 let timerInterval;
@@ -169,3 +171,30 @@ endBackBtn.addEventListener('click', () => {
     showScreen(configScreen);
     exitFullscreen();
 });
+
+// Theme handling: toggle and persistent preference (scoped to config screen)
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        configScreen.classList.add('dark');
+    } else {
+        configScreen.classList.remove('dark');
+    }
+    if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = configScreen.classList.contains('dark');
+        applyTheme(isDark ? 'light' : 'dark');
+    });
+}
+
+// Apply saved or system-preferred theme on load (only for config screen)
+try {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+} catch (e) {
+    applyTheme('light');
+}

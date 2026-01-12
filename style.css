@@ -30,6 +30,9 @@ html {
 
 /* Config Screen Styles */
 #config-screen {
+    /* Suave gradiente claro para tranquilidade e foco */
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f9 100%);
+    /* fallback */
     background-color: #f0f2f5;
     color: #333;
     overflow-y: auto;
@@ -165,4 +168,55 @@ input[type="color"] {
     object-fit: contain;
     margin-bottom: 20px;
     z-index: 100;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 999;
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    box-shadow: 0 6px 18px rgba(12, 24, 40, 0.08);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid rgba(0,123,255,0.25);
+}
+
+/* Dark mode styles */
+.#config-screen.dark {
+    /* (not used) placeholder to avoid accidental selector start */
+}
+
+/* Dark theme scoped to the config screen only */
+#config-screen.dark {
+    background: linear-gradient(180deg, #071428 0%, #001219 100%);
+    color: #e6f0f5;
+}
+
+#config-screen.dark input,
+#config-screen.dark select,
+#config-screen.dark input[type="number"] {
+    background-color: rgba(255,255,255,0.03);
+    color: #e6f0f5;
+    border: 1px solid rgba(230,240,245,0.06);
+}
+
+#config-screen.dark .primary-btn {
+    background-color: #1e90ff;
+    color: white;
+}
+
+#config-screen.dark .controls button {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(230,240,245,0.06);
+    color: #e6f0f5;
 }
